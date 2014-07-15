@@ -19,17 +19,16 @@
 
 include_recipe "zabbix-custom-checks::default"
 
-template "#{node.zabbix.agent.include_dir}/nginx.conf" do
-	source "nginx/nginx.conf.erb"
-	mode "644"
-	notifies :restart, "service[zabbix_agentd]"
-end	
-
 template "#{node.zabbix.external_dir}/nginx_status.sh" do
 	source "nginx/nginx_status.sh.erb"
 	mode "755"
 end
 
+template "#{node.zabbix.agent.include_dir}/nginx.conf" do
+	source "nginx/nginx.conf.erb"
+	mode "644"
+	notifies :restart, "service[zabbix_agentd]", :delayed
+end
 
 include_recipe "nginx"
 	
