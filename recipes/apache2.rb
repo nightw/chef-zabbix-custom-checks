@@ -19,12 +19,6 @@
 
 include_recipe "zabbix-custom-checks::default"
 
-template "#{node.zabbix.agent.include_dir}/apache2.conf" do
-	source "apache2/apache2.conf.erb"
-	mode "644"
-	notifies :restart, "service[zabbix_agentd]"
-end	
-
 template "#{node.zabbix.external_dir}/apache2_status.sh" do
 	source "apache2/apache2_status.sh.erb"
 	mode "755"
@@ -34,4 +28,10 @@ include_recipe "apache2::mod_status"
 
 web_app "server-status" do
   template "apache2/web_app.conf.erb"
+end
+
+template "#{node.zabbix.agent.include_dir}/apache2.conf" do
+	source "apache2/apache2.conf.erb"
+	mode "644"
+	notifies :restart, "service[zabbix_agentd]", :delayed
 end
