@@ -1,0 +1,6 @@
+#!/bin/bash
+PATH=$PATH:<%= node[:zabbix][:bin_dir] %>:<%= node[:zabbix][:external_dir] %>:<%= node[:zabbix][:home] %>:<%= node[:zabbix][:install_dir] %>:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin
+export PATH
+BASE_DIR="`dirname $0`"
+/usr/bin/php $BASE_DIR/mikoomi-mongodb-plugin.php $*
+echo 0
