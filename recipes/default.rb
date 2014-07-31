@@ -18,3 +18,12 @@
 #
 
 include_recipe "zabbix"
+
+# This directory must exists, since some scripts will be put here in some
+# recipes in this cookbook
+directory node[:zabbix][:external_dir] do
+	mode 00755
+	owner node[:zabbix][:agent][:user]
+	group node[:zabbix][:agent][:group]
+	recursive true
+end
