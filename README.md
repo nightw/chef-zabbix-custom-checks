@@ -38,6 +38,8 @@ These cookbooks are defined as external dependencies:
 * [zabbix-cookbook]
 * [nginx]
 * [chef_handler]
+* [php]
+* [cron]
 
 All of them are available through the Opscode [community site][opscommunity].
 
@@ -61,6 +63,12 @@ Monitors the output of `apt-check` and reports, whether security or normal updat
 ### <a name="recipes-chef-client"></a> chef-client
 
 Monitors the duration of `chef-client` runs and the success status. Failed runs and continuously slow execution (>60 seconds) are reported. Makes use of [chef_handler] and registers as a [report handler][chef-wiki-handler].
+
+### <a name="recipes-mongodb"></a> MongoDB
+
+Monitors **MongoDB** through a custom PHP script connectiong to the MongoDB server instance. Originally based on the [mikoomi MongoDB plugin](https://code.google.com/p/mikoomi/wiki/03) using an [updated fork](https://github.com/nightw/mikoomi-zabbix-mongodb-monitoring)
+
+Credits for the original script go to the [mikoomi](https://code.google.com/p/mikoomi/) project.
 
 ### <a name="recipes-nginx"></a> nginx
 
