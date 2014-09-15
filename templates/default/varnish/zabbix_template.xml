@@ -3495,6 +3495,38 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
             <screens/>
         </template>
     </templates>
+    <triggers>
+        <trigger>
+            <name>Varnish is not running on {HOSTNAME}</name>
+            <type>0</type>
+            <expression>{Service Varnish:proc.num[varnishd].last(0)}&lt;1</expression>
+            <url></url>
+            <status>0</status>
+            <priority>4</priority>
+            <comments></comments>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <name>Bad Data from Varnish on {HOSTNAME}, now {ITEM.LASTVALUE}</name>
+            <type>0</type>
+            <expression>{Service Varnish:custom.varnish[cache_hit].last(0)}&lt;0</expression>
+            <url></url>
+            <status>0</status>
+            <priority>2</priority>
+            <comments></comments>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <name>No Data Received from Vanish for 3 minutes on {HOSTNAME}</name>
+            <type>0</type>
+            <expression>{Service Varnish:proc.num[varnishd].nodata(180)}=1 | {Service Varnish:custom.varnish[s_req].nodata(180)}=1 </expression>
+            <url></url>
+            <status>0</status>
+            <priority>4</priority>
+            <comments></comments>
+            <dependencies/>
+        </trigger>
+    </triggers>
     <graphs>
         <graph>
             <name>Varnish Backend Connections</name>
