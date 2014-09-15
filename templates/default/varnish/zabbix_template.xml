@@ -491,7 +491,7 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Cache efectivity</name>
+                    <name>Cache effectivity</name>
                     <type>15</type>
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
