@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-06-10T17:30:06Z</date>
+    <date>2014-09-12T17:30:06Z</date>
     <groups>
         <group>
             <name>Custom Templates</name>
@@ -3996,6 +3996,78 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <item>
                         <host>Service Varnish</host>
                         <key>custom.varnish[n_wrk_drop]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>Varnish Cache Size</name>
+            <width>900</width>
+            <height>200</height>
+            <ymin_type_1>1</ymin_type_1>
+            <ymax_type_1>0</ymax_type_1>
+            <ymin_item_1>0</ymin_item_1>
+            <ymax_item_1>0</ymax_item_1>
+            <show_work_period>0</show_work_period>
+            <show_triggers>0</show_triggers>
+            <graphtype>0</graphtype>
+            <yaxismin>0.0000</yaxismin>
+            <yaxismax>100.0000</yaxismax>
+            <show_legend>1</show_legend>
+            <show_3d>0</show_3d>
+            <percent_left>0.0000</percent_left>
+            <percent_right>0.0000</percent_right>
+            <graph_items>
+                <graph_item>
+                    <drawtype>2</drawtype>
+                    <sortorder>1</sortorder>
+                    <color>009900</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <periods_cnt>5</periods_cnt>
+                    <item>
+                        <host>Service Varnish</host>
+                        <key>custom.varnish[sma_balloc]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <drawtype>2</drawtype>
+                    <sortorder>2</sortorder>
+                    <color>800000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <periods_cnt>5</periods_cnt>
+                    <item>
+                        <host>Service Varnish</host>
+                        <key>custom.varnish[sms_balloc]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <drawtype>5</drawtype>
+                    <sortorder>3</sortorder>
+                    <color>008080</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <periods_cnt>5</periods_cnt>
+                    <item>
+                        <host>Service Varnish</host>
+                        <key>custom.varnish[sma_bfree]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <drawtype>5</drawtype>
+                    <sortorder>4</sortorder>
+                    <color>ff0000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <periods_cnt>5</periods_cnt>
+                    <item>
+                        <host>Service Varnish</host>
+                        <key>custom.varnish[sms_bfree]</key>
                     </item>
                 </graph_item>
             </graph_items>
