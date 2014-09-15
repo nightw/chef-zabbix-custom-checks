@@ -14,8 +14,3 @@ template "#{node.zabbix.agent.include_dir}/varnish.conf" do
   mode "644"
   notifies :restart, "service[zabbix_agentd]", :delayed
 end
-
-template "/etc/sudoers.d/zabbix-varnish" do
-  source "varnish/sudoers.erb"
-  mode "440"
-end
