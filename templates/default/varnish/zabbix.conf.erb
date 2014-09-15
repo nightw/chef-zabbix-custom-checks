@@ -1,1 +1,5 @@
+<%- if node[:varnish][:version].start_with? '4.' -%>
+UserParameter=custom.varnish[*],/usr/bin/varnishstat -1 | grep "\.$1 " | awk '{print $$2}'
+<%- else -%>
 UserParameter=custom.varnish[*],/usr/bin/varnishstat -1 | grep "$1 " | awk '{print $$2}'
+<%- end -%>
