@@ -59,6 +59,45 @@
             </applications>
             <items>
                 <item>
+                    <name>Number of Varnish processes</name>
+                    <type>7</type>
+                    <snmp_community></snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid></snmp_oid>
+                    <key>proc.num[varnishd]</key>
+                    <delay>60</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts>localhost</allowed_hosts>
+                    <units></units>
+                    <delta>0</delta>
+                    <snmpv3_securityname></snmpv3_securityname>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase></snmpv3_authpassphrase>
+                    <snmpv3_privpassphrase></snmpv3_privpassphrase>
+                    <formula>0</formula>
+                    <delay_flex></delay_flex>
+                    <params></params>
+                    <ipmi_sensor></ipmi_sensor>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username></username>
+                    <password></password>
+                    <publickey></publickey>
+                    <privatekey></privatekey>
+                    <port></port>
+                    <description></description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Varnish</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
                     <name>Accept failures</name>
                     <type>7</type>
                     <snmp_community></snmp_community>
