@@ -103,7 +103,7 @@
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[accept_fail]</key>
+                    <key>custom.varnish[accept_fail,sess_fail]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -142,7 +142,7 @@
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[backend_fail]</key>
+                    <key>custom.varnish[backend_fail,backend_fail]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -181,7 +181,7 @@
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[backend_unhealthy]</key>
+                    <key>custom.varnish[backend_unhealthy,backend_unhealthy]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -220,7 +220,7 @@
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[backend_recycle]</key>
+                    <key>custom.varnish[backend_recycle,backend_recycle]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -259,7 +259,7 @@
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[backend_reuse]</key>
+                    <key>custom.varnish[backend_reuse,backend_reuse]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -298,7 +298,7 @@
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[backend_conn]</key>
+                    <key>custom.varnish[backend_conn,backend_conn]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -337,7 +337,7 @@
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[backend_busy]</key>
+                    <key>custom.varnish[backend_busy,backend_busy]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -379,7 +379,7 @@
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[backend_unused]</key>
+                    <key>custom.varnish[backend_unused,backend_unused]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -418,7 +418,46 @@
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[backend_toolate]</key>
+                    <key>custom.varnish[backend_toolate,backend_toolate]</key>
+                    <delay>60</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts>localhost</allowed_hosts>
+                    <units></units>
+                    <delta>1</delta>
+                    <snmpv3_securityname></snmpv3_securityname>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase></snmpv3_authpassphrase>
+                    <snmpv3_privpassphrase></snmpv3_privpassphrase>
+                    <formula>0</formula>
+                    <delay_flex></delay_flex>
+                    <params></params>
+                    <ipmi_sensor></ipmi_sensor>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username></username>
+                    <password></password>
+                    <publickey></publickey>
+                    <privatekey></privatekey>
+                    <port></port>
+                    <description></description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Varnish</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Backend conn. was retried</name>
+                    <type>7</type>
+                    <snmp_community></snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid></snmp_oid>
+                    <key>custom.varnish[backend_retry,backend_retry]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -457,7 +496,7 @@
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[backend_req]</key>
+                    <key>custom.varnish[backend_req,backend_req]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -511,8 +550,8 @@
                     <snmpv3_privpassphrase></snmpv3_privpassphrase>
                     <formula>0</formula>
                     <delay_flex></delay_flex>
-                    <params>(last(&quot;custom.varnish[cache_hit]&quot;)+last(&quot;custom.varnish[cache_hitpass]&quot;))/(last(&quot;custom.varnish[cache_hit]&quot;)+&#13;
-last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_miss]&quot;))*100</params>
+                    <params>(last(&quot;custom.varnish[cache_hit,cache_hit]&quot;)+last(&quot;custom.varnish[cache_hitpass,cache_hitpass]&quot;))/(last(&quot;custom.varnish[cache_hit,cache_hit]&quot;)+&#13;
+last(&quot;custom.varnish[cache_hitpass,cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_miss,cache_miss]&quot;))*100</params>
                     <ipmi_sensor></ipmi_sensor>
                     <data_type>0</data_type>
                     <authtype>0</authtype>
@@ -539,7 +578,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[cache_hit]</key>
+                    <key>custom.varnish[cache_hit,cache_hit]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -578,7 +617,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[cache_hitpass]</key>
+                    <key>custom.varnish[cache_hitpass,cache_hitpass]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -617,7 +656,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[cache_miss]</key>
+                    <key>custom.varnish[cache_miss,cache_miss]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -656,7 +695,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community>public</snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
-                    <key>custom.varnish[client_conn]</key>
+                    <key>custom.varnish[client_conn,sess_conn]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -698,7 +737,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[client_req]</key>
+                    <key>custom.varnish[client_req,client_req]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -737,7 +776,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[client_drop]</key>
+                    <key>custom.varnish[client_drop,sess_drop]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -776,7 +815,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[client_drop_late]</key>
+                    <key>custom.varnish[client_drop_late,client_drop_late]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -815,7 +854,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[esi_errors]</key>
+                    <key>custom.varnish[esi_errors,esi_errors]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -857,7 +896,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[fetch_chunked]</key>
+                    <key>custom.varnish[fetch_chunked,fetch_chunked]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -896,7 +935,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[fetch_eof]</key>
+                    <key>custom.varnish[fetch_eof,fetch_eof]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -935,7 +974,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[fetch_failed]</key>
+                    <key>custom.varnish[fetch_failed,fetch_failed]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -974,7 +1013,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[fetch_bad]</key>
+                    <key>custom.varnish[fetch_bad,fetch_bad]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1016,7 +1055,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[fetch_head]</key>
+                    <key>custom.varnish[fetch_head,fetch_head]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1055,7 +1094,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[fetch_oldhttp]</key>
+                    <key>custom.varnish[fetch_oldhttp,fetch_oldhttp]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1094,7 +1133,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[fetch_close]</key>
+                    <key>custom.varnish[fetch_close,fetch_close]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1133,7 +1172,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[fetch_length]</key>
+                    <key>custom.varnish[fetch_length,fetch_length]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1172,7 +1211,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[fetch_zero]</key>
+                    <key>custom.varnish[fetch_zero,fetch_zero]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1211,7 +1250,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[hcb_insert]</key>
+                    <key>custom.varnish[hcb_insert,hcb_insert]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1253,7 +1292,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[hcb_lock]</key>
+                    <key>custom.varnish[hcb_lock,hcb_lock]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1292,7 +1331,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[hcb_nolock]</key>
+                    <key>custom.varnish[hcb_nolock,hcb_nolock]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1331,7 +1370,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[losthdr]</key>
+                    <key>custom.varnish[losthdr,losthdr]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1370,7 +1409,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_backend]</key>
+                    <key>custom.varnish[n_backend,n_backend]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1409,7 +1448,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_wrk_drop]</key>
+                    <key>custom.varnish[n_wrk_drop,n_wrk_drop]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1448,7 +1487,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_expired]</key>
+                    <key>custom.varnish[n_expired,n_expired]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1487,7 +1526,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_smf_large]</key>
+                    <key>custom.varnish[n_smf_large,g_smf_large]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1526,7 +1565,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_lru_moved]</key>
+                    <key>custom.varnish[n_lru_moved,n_lru_moved]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1565,7 +1604,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_lru_nuked]</key>
+                    <key>custom.varnish[n_lru_nuked,n_lru_nuked]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1604,7 +1643,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_lru_saved]</key>
+                    <key>custom.varnish[n_lru_saved,n_lru_saved]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1643,7 +1682,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_deathrow]</key>
+                    <key>custom.varnish[n_deathrow,n_deathrow]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1682,7 +1721,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_wrk_overflow]</key>
+                    <key>custom.varnish[n_wrk_overflow,n_wrk_overflow]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1721,7 +1760,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_wrk_queue]</key>
+                    <key>custom.varnish[n_wrk_queue,thread_queue_len]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1760,7 +1799,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_smf_frag]</key>
+                    <key>custom.varnish[n_smf_frag,g_smf_frag]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1799,7 +1838,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_object]</key>
+                    <key>custom.varnish[n_object,n_object]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1838,7 +1877,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_objectcore]</key>
+                    <key>custom.varnish[n_objectcore,n_objectcore]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1877,7 +1916,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_objecthead]</key>
+                    <key>custom.varnish[n_objecthead,n_objecthead]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1916,7 +1955,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_sess]</key>
+                    <key>custom.varnish[n_sess,n_sess]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1955,7 +1994,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_sess_mem]</key>
+                    <key>custom.varnish[n_sess_mem,n_sess_mem]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -1994,7 +2033,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_smf]</key>
+                    <key>custom.varnish[n_smf,g_smf]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2033,7 +2072,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_vbe_conn]</key>
+                    <key>custom.varnish[n_vbe_conn,n_vbe_conn]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2072,7 +2111,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_vampireobject]</key>
+                    <key>custom.varnish[n_vampireobject,n_vampireobject]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2111,7 +2150,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_wrk]</key>
+                    <key>custom.varnish[n_wrk,threads]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2153,7 +2192,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_wrk_create]</key>
+                    <key>custom.varnish[n_wrk_create,threads_created]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2192,7 +2231,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_wrk_max]</key>
+                    <key>custom.varnish[n_wrk_max,threads_limited]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2231,7 +2270,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_wrk_failed]</key>
+                    <key>custom.varnish[n_wrk_failed,threads_failed]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2270,7 +2309,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[esi_parse]</key>
+                    <key>custom.varnish[esi_parse,esi_parse]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2309,7 +2348,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_objoverflow]</key>
+                    <key>custom.varnish[n_objoverflow,n_objoverflow]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2351,7 +2390,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_objsendfile]</key>
+                    <key>custom.varnish[n_objsendfile,n_objsendfile]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2390,7 +2429,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[n_objwrite]</key>
+                    <key>custom.varnish[n_objwrite,n_objwrite]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2429,7 +2468,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sess_closed]</key>
+                    <key>custom.varnish[sess_closed,sess_closed]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2468,7 +2507,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sess_herd]</key>
+                    <key>custom.varnish[sess_herd,sess_herd]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2507,7 +2546,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sess_linger]</key>
+                    <key>custom.varnish[sess_linger,sess_linger]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2546,7 +2585,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sess_pipeline]</key>
+                    <key>custom.varnish[sess_pipeline,sess_pipeline]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2585,7 +2624,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sess_readahead]</key>
+                    <key>custom.varnish[sess_readahead,sess_readahead]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2624,7 +2663,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[shm_cycles]</key>
+                    <key>custom.varnish[shm_cycles,shm_cycles]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2663,7 +2702,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[shm_flushes]</key>
+                    <key>custom.varnish[shm_flushes,shm_flushes]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2702,7 +2741,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[shm_cont]</key>
+                    <key>custom.varnish[shm_cont,shm_cont]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2744,7 +2783,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[shm_records]</key>
+                    <key>custom.varnish[shm_records,shm_records]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2783,7 +2822,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[shm_writes]</key>
+                    <key>custom.varnish[shm_writes,shm_writes]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2822,7 +2861,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sma_nreq]</key>
+                    <key>custom.varnish[sma_nreq,Transient.c_req]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2861,7 +2900,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sma_balloc]</key>
+                    <key>custom.varnish[sma_balloc,Transient.c_bytes]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2903,7 +2942,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sma_bfree]</key>
+                    <key>custom.varnish[sma_bfree,Transient.c_freed]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2942,7 +2981,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sma_nobj]</key>
+                    <key>custom.varnish[sma_nobj,Transient.g_alloc]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -2981,7 +3020,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sma_nbytes]</key>
+                    <key>custom.varnish[sma_nbytes,Transient.g_bytes]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3020,7 +3059,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sms_nreq]</key>
+                    <key>custom.varnish[sms_nreq,sms_nreq]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3059,7 +3098,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sms_balloc]</key>
+                    <key>custom.varnish[sms_balloc,sms_balloc]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3101,7 +3140,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sms_bfree]</key>
+                    <key>custom.varnish[sms_bfree,sms_bfree]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3140,7 +3179,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sms_nobj]</key>
+                    <key>custom.varnish[sms_nobj,sms_nobj]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3179,7 +3218,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[sms_nbytes]</key>
+                    <key>custom.varnish[sms_nbytes,sms_nbytes]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3218,7 +3257,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[s_bodybytes]</key>
+                    <key>custom.varnish[s_bodybytes,s_req_bodybytes+s_resp_bodybytes]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3260,7 +3299,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[s_fetch]</key>
+                    <key>custom.varnish[s_fetch,s_fetch]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3299,7 +3338,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[s_hdrbytes]</key>
+                    <key>custom.varnish[s_hdrbytes,s_req_hdrbytes+s_resp_hdrbytes]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3338,7 +3377,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[s_pass]</key>
+                    <key>custom.varnish[s_pass,s_pass]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3377,7 +3416,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[s_pipe]</key>
+                    <key>custom.varnish[s_pipe,s_pipe]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3416,7 +3455,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[s_req]</key>
+                    <key>custom.varnish[s_req,s_req]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3455,7 +3494,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <snmp_community></snmp_community>
                     <multiplier>0</multiplier>
                     <snmp_oid></snmp_oid>
-                    <key>custom.varnish[s_sess]</key>
+                    <key>custom.varnish[s_sess,s_sess]</key>
                     <delay>60</delay>
                     <history>90</history>
                     <trends>365</trends>
@@ -3509,7 +3548,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
         <trigger>
             <name>Bad Data from Varnish on {HOSTNAME}, now {ITEM.LASTVALUE}</name>
             <type>0</type>
-            <expression>{Service Varnish:custom.varnish[cache_hit].last(0)}&lt;0</expression>
+            <expression>{Service Varnish:custom.varnish[cache_hit,cache_hit].last(0)}&lt;0</expression>
             <url></url>
             <status>0</status>
             <priority>2</priority>
@@ -3519,7 +3558,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
         <trigger>
             <name>No Data Received from Vanish for 3 minutes on {HOSTNAME}</name>
             <type>0</type>
-            <expression>{Service Varnish:proc.num[varnishd].nodata(180)}=1 | {Service Varnish:custom.varnish[s_req].nodata(180)}=1 </expression>
+            <expression>{Service Varnish:proc.num[varnishd].nodata(180)}=1 | {Service Varnish:custom.varnish[s_req,s_req].nodata(180)}=1 </expression>
             <url></url>
             <status>0</status>
             <priority>4</priority>
@@ -3555,7 +3594,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[backend_recycle]</key>
+                        <key>custom.varnish[backend_recycle,backend_recycle]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3567,7 +3606,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[backend_reuse]</key>
+                        <key>custom.varnish[backend_reuse,backend_reuse]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3579,7 +3618,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[backend_conn]</key>
+                        <key>custom.varnish[backend_conn,backend_conn]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3591,7 +3630,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[backend_unused]</key>
+                        <key>custom.varnish[backend_unused,backend_unused]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3603,7 +3642,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[backend_toolate]</key>
+                        <key>custom.varnish[backend_toolate,backend_toolate]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3615,7 +3654,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[backend_fail]</key>
+                        <key>custom.varnish[backend_fail,backend_fail]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3627,7 +3666,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[backend_unhealthy]</key>
+                        <key>custom.varnish[backend_unhealthy,backend_unhealthy]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3639,7 +3678,19 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[backend_busy]</key>
+                        <key>custom.varnish[backend_busy,backend_busy]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>8</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>0000ff</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Service Varnish</host>
+                        <key>custom.varnish[backend_retry,backend_retry]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -3671,7 +3722,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[cache_hit]</key>
+                        <key>custom.varnish[cache_hit,cache_hit]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3683,7 +3734,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[cache_hitpass]</key>
+                        <key>custom.varnish[cache_hitpass,cache_hitpass]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3695,7 +3746,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[cache_miss]</key>
+                        <key>custom.varnish[cache_miss,cache_miss]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -3727,7 +3778,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[client_conn]</key>
+                        <key>custom.varnish[client_conn,sess_conn]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3739,7 +3790,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[client_req]</key>
+                        <key>custom.varnish[client_req,client_req]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3751,7 +3802,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[client_drop]</key>
+                        <key>custom.varnish[client_drop,sess_drop]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3763,7 +3814,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[client_drop_late]</key>
+                        <key>custom.varnish[client_drop_late,client_drop_late]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -3795,7 +3846,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[fetch_head]</key>
+                        <key>custom.varnish[fetch_head,fetch_head]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3807,7 +3858,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[fetch_length]</key>
+                        <key>custom.varnish[fetch_length,fetch_length]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3819,7 +3870,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[fetch_chunked]</key>
+                        <key>custom.varnish[fetch_chunked,fetch_chunked]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3831,7 +3882,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[fetch_eof]</key>
+                        <key>custom.varnish[fetch_eof,fetch_eof]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3843,7 +3894,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[fetch_bad]</key>
+                        <key>custom.varnish[fetch_bad,fetch_bad]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3855,7 +3906,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[fetch_close]</key>
+                        <key>custom.varnish[fetch_close,fetch_close]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3867,7 +3918,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[fetch_oldhttp]</key>
+                        <key>custom.varnish[fetch_oldhttp,fetch_oldhttp]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3879,7 +3930,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[fetch_zero]</key>
+                        <key>custom.varnish[fetch_zero,fetch_zero]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3891,7 +3942,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[fetch_failed]</key>
+                        <key>custom.varnish[fetch_failed,fetch_failed]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -3923,7 +3974,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[n_wrk]</key>
+                        <key>custom.varnish[n_wrk,threads]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3935,7 +3986,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[n_wrk_create]</key>
+                        <key>custom.varnish[n_wrk_create,threads_created]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3947,7 +3998,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[n_wrk_failed]</key>
+                        <key>custom.varnish[n_wrk_failed,threads_failed]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3959,7 +4010,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[n_wrk_max]</key>
+                        <key>custom.varnish[n_wrk_max,threads_limited]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3971,7 +4022,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[n_wrk_queue]</key>
+                        <key>custom.varnish[n_wrk_queue,thread_queue_len]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3983,7 +4034,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[n_wrk_overflow]</key>
+                        <key>custom.varnish[n_wrk_overflow,n_wrk_overflow]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -3995,7 +4046,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <type>0</type>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[n_wrk_drop]</key>
+                        <key>custom.varnish[n_wrk_drop,n_wrk_drop]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -4028,7 +4079,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <periods_cnt>5</periods_cnt>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[sma_balloc]</key>
+                        <key>custom.varnish[sma_balloc,Transient.c_bytes]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4041,7 +4092,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <periods_cnt>5</periods_cnt>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[sms_balloc]</key>
+                        <key>custom.varnish[sms_balloc,sms_balloc]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4054,7 +4105,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <periods_cnt>5</periods_cnt>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[sma_bfree]</key>
+                        <key>custom.varnish[sma_bfree,Transient.c_freed]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -4067,7 +4118,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <periods_cnt>5</periods_cnt>
                     <item>
                         <host>Service Varnish</host>
-                        <key>custom.varnish[sms_bfree]</key>
+                        <key>custom.varnish[sms_bfree,sms_bfree]</key>
                     </item>
                 </graph_item>
             </graph_items>

@@ -1,5 +1,6 @@
 <%- if node[:varnish][:version].start_with? '4.' -%>
-UserParameter=custom.varnish[*],/usr/bin/varnishstat -1 | grep "\.$1 " | awk '{print $$2}'
+UserParameter=custom.varnish[*],<%= node.zabbix.external_dir %>/varnish4_stats.sh $1 $2
 <%- else -%>
+# We only use the first parameter from the key, since that's the Varnish 2.x - 3.x version of the key
 UserParameter=custom.varnish[*],/usr/bin/varnishstat -1 | grep "$1 " | awk '{print $$2}'
 <%- end -%>

@@ -1,0 +1,9 @@
+#!/bin/bash
+# We only use the second parameter from the key, since that's the Varnish 4.x version of the key
+# Also adding the starting dot, since all of the keys are prefixed in Varnish 4.x
+# And make sure if the key contains a '+' sign then we really add the two values together
+if [[ $2 == *+* ]]; then
+	expr $(/usr/bin/varnishstat -1 | grep "\.$(echo $2 | cut -d '+' -f1) " | awk '{print $2}') + $(/usr/bin/varnishstat -1 | grep "\.$(echo $2 | cut -d '+' -f2) " | awk '{print $2}')
+else
+	/usr/bin/varnishstat -1 | grep "\.$2 " | awk '{print $2}'
+fi
