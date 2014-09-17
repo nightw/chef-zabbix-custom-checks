@@ -1378,7 +1378,7 @@ last(&quot;custom.varnish[cache_hitpass]&quot;)+last(&quot;custom.varnish[cache_
                     <value_type>3</value_type>
                     <allowed_hosts>localhost</allowed_hosts>
                     <units></units>
-                    <delta>1</delta>
+                    <delta>0</delta>
                     <snmpv3_securityname></snmpv3_securityname>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
                     <snmpv3_authpassphrase></snmpv3_authpassphrase>
