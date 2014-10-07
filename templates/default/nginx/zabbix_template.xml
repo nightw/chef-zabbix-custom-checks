@@ -386,7 +386,7 @@
             <name>Nginx not running</name>
             <url></url>
             <status>0</status>
-            <priority>3</priority>
+            <priority>4</priority>
             <description>The nginx process seems to be stopped</description>
             <type>0</type>
             <dependencies/>
