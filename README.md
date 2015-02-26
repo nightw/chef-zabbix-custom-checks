@@ -64,6 +64,10 @@ Monitors the output of `apt-check` and reports, whether security or normal updat
 
 Monitors the duration of `chef-client` runs and the success status. Failed runs and continuously slow execution (>60 seconds) are reported. Makes use of [chef_handler] and registers as a [report handler][chef-wiki-handler].
 
+### <a name="recipes-disk-io"></a> disk-io
+
+Monitors detailed disk usage data through the `/proc/diskstats` kernel interface. Also support discovery of disk with a custom script. Based on the [zabbix-disk-performance](https://github.com/grundic/zabbix-disk-performance) project written by [Grigory Chernyshev](https://github.com/grundic) and licensed under The MIT License (MIT). So please also consider this license difference when you use this part of the cookbook. (The other parts of this cookbook are licensed under the license written at the end of this README).
+
 ### <a name="recipes-mongodb"></a> MongoDB
 
 Monitors **MongoDB** through a custom PHP script connectiong to the MongoDB server instance. Originally based on the [mikoomi MongoDB plugin](https://code.google.com/p/mikoomi/wiki/03) using an [updated fork](https://github.com/nightw/mikoomi-zabbix-mongodb-monitoring)
